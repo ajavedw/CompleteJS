@@ -26,7 +26,7 @@ john.calcAge();
 Concept of stack and heap:
 
 stack: stores primitive types--primitive types in JS are numbers, strings, boolean, null and ?
-heap: stores dynamic 
+heap: stores dynamic
 
 
 Heap--Variables allocated on the heap have their memory allocated at run time and accessing this memory is a bit slower, but the heap size is only limited by the size of virtual memory . Element of the heap have no dependencies with each other and can always be accessed randomly at any time. You can allocate a block at any time and free it at any time. This makes it much more complex to keep track of which parts of the heap are allocated or free at any given time.
@@ -59,7 +59,7 @@ var obj3 = {
     city:'lisbon'
 };
 
-function change(c,b) {  
+function change(c,b) {
     c= 30;
     b.city = 'attock';
 }
@@ -85,8 +85,8 @@ var heap = {
 }
 console.log(heap.name);  // logs adnan
 function changeIt (a,b)
-{ 
-    a =25; 
+{
+    a =25;
     b.name='aj';
     console.log(a);
 }
@@ -103,3 +103,18 @@ changeIt(stack, heap);
 console.log(stack); //logs  30
 console.log(heap.name); // logs aj
 
+
+
+ console.log("apple");
+ function testCallback(arg, callback) {
+   //arg = 'my cup';
+   debugger;
+   finish = "fill" + arg;
+   callback(finish);
+ }
+
+ function cBack(cBackArg) {
+   console.log(cBackArg);
+ }
+
+ testCallback("my cup", cBack);
