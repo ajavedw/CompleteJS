@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+/*     var ages = [45, 13, 18];
+    var em = [];
+    var result = [];
+    for (var i =0; i < ages.length; i++){
+        em.push(ages[i]);
+
+        if (em[i]>=18){
+            result.push(true);
+        }
+        if (em[i] < 18) {
+            result.push(false);
+        }
+    }
+    console.log(em);
+    console.log(result);
+ */
+function printFullAge(agesArray) {
+    var em = [];
+    var result = [];
+    for (var i = 0; i < agesArray.length; i++) {
+        em.push(agesArray[i]);
+
+        if (em[i] >= 18) {
+            result.push(true);
+        }
+        if (em[i] < 18) {
+            result.push(false);
+        }
+    }
+    return result;
+}
+
+var ages1 = [15, 19, 875,65];
+var ages2 = [24, 12, 34, 54];
+
+console.log(printFullAge(ages1));
+console.log(printFullAge(ages2));
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
