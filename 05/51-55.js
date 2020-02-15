@@ -24,6 +24,7 @@ john.calcAge();
 
 /***********
 Concept of stack and heap:
+git remote -v
 
 stack: stores primitive types--primitive types in JS are numbers, strings, boolean, null and ?
 heap: stores dynamic
@@ -103,18 +104,3 @@ changeIt(stack, heap);
 console.log(stack); //logs  30
 console.log(heap.name); // logs aj
 
-
-
- console.log("apple");
- function testCallback(arg, callback) {
-   //arg = 'my cup';
-   debugger;
-   finish = "fill" + arg;
-   callback(finish);
- }
-
- function cBack(cBackArg) {
-   console.log(cBackArg);
- }
-
- testCallback("my cup", cBack);
