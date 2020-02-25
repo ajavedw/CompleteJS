@@ -142,3 +142,62 @@ source code to determine where that variable is available. Nested functions have
 
  var myFunc = makeFunc();
  myFunc();
+
+ /* CLOSURES */
+
+ function retirement(retirementAge){
+     var a = " years left until retirement";
+     return function (YOB){
+         var age =  2020 - YOB;
+         console.log((retirementAge - age) + a);
+     }
+ }
+
+ retirementUS = retirement(65);
+ console.log(retirementUS);
+ retirementUS(1985);
+
+function interviewQ(job){
+    return function output(name) {
+
+    }
+}
+
+
+/* BIND , CALL AND APPLY */
+function Presentation(name, age, job)
+{
+     this.name =name;
+     this.age = age;
+     this.job = job;
+     this.presentaion = function (style,timeOfDay){
+         if (style==='formal'){
+             console.log("Good " + timeOfDay + ". My name is " + this.name + ' and age is ' + this.age + ' with job of ' + this.job);
+             // what about if I use just name, age and job inplace of this.age, this.name and this.job...For emily it will then copy john data
+         }
+         if (style === "casual") {
+           console.log(
+             "Its " + timeOfDay + 'bitch. ' + ". My name is " + this.name + " and age is " + this.age + " with job of " + this.job);
+         }
+     };
+};
+
+function Presentation2(name, age, job)
+{
+     this.name =name;
+     this.age = age;
+     this.job = job;
+};
+var john = new Presentation('john', 26, 'teacher');
+var emily = new Presentation2("emily", 36, "nurse");
+emily.presentaion = john.presentaion;
+console.log(john);
+console.log(emily);
+console.log(emily.presentaion);
+
+john.presentaion("formal", "evening");
+emily.presentaion("casual", "morning");
+
+/* var john =  {
+    name:
+} */

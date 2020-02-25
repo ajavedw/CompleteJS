@@ -19,3 +19,18 @@ for (var i = 1; i <= 5; i++) {
 // document.body.onclick = function() {
 //   input.value += ' body'
 // }
+
+for (var i = 1; i <= 5; i++) {
+  (function(index) {
+    setTimeout(function() {
+      alert(index);
+    }, i * 1000);
+  })(i);
+}
+
+for (var i = 1; i < 5; i++) {
+  timeout(i);
+}
+function timeout(i) {
+  setTimeout(() => console.log(i), 0);
+}
