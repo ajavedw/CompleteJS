@@ -41,6 +41,6 @@ var mike ={
 };
 
 mike.calculateAge = jhon.calculateAge;
-mike.calculateAge();
+mike.calculateAge(); 
 
 
