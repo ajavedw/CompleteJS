@@ -249,7 +249,7 @@ A BASIC EXAMPLE OF CLOSURES IN JAVASCRIPT:
 -----from (http://javascriptissexy.com/understand-javascript-closures-with-ease/)
 function showName (firstName, lastName) {
 var nameIntro = "Your name is ";
-    // this inner function has access to the outer function's variables, including the parameter
+    // THIS INNER FUNCTION HAS ACCESS TO THE OUTER FUNCTION'S VARIABLES, INCLUDING THE PARAMETER
 function makeFullName () {
 return nameIntro + firstName + " " + lastName;
 }
@@ -260,5 +260,7 @@ return makeFullName ();
 showName ("Michael", "Jackson"); // Your name is Michael Jackson
 
 WHATCH THIS AS WELL FROM KUDVENKANT(https://www.youtube.com/watch?v=w1s9PgtEoJs)
+
+INNER FUNCTION HAS ACCESS TO OUTER FUNCTION VARIABLES AND PARAMATERS IN CLOSURES
 */
 
