@@ -189,24 +189,29 @@ objective1.age = 'pata he';
 console.log(objective1);
 console.log(objective2);
 
-abc = 27;
+a = 27;
 var objectives = {
   age:40,
   city: 'London'
 }
 
-function changing(abc,b){
-  abc = 43;
+function changing(a,b){
+  a = 43;
   b.city = "Lisbon";
   console.log('mutability');
 
-  console.log(abc);
+  console.log(a);
 }
 
-changing(abc,objectives);
+changing(a,objectives);
 
-console.log(abc);
+console.log(a);
 console.log(objectives);
+
+/* ------------------------------------------------------------------------------------ */
+/* I dont understanbd the example above.                                                */
+/* ------------------------------------------------------------------------------------ */
+
 /*abc = 43 only changes what the abc variable refers to where abc is defined - reassigning a variable, by itself, won't ever have any side effects outside of the scope of that variable ???– CertainPerformance Dec 11 '19 at 5:20 */
 
 /* Now, on to functions and passing parameters.... When you call a function, and pass a parameter, what you are essentially doing is an "assignment" to a new variable, and it works exactly the same as if you simply assigned using the equal (=) sign.*/

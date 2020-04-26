@@ -201,3 +201,64 @@ emily.presentaion("casual", "morning");
 /* var john =  {
     name:
 } */
+
+
+/* ---------------------------------------------------------------- */
+/*                                  ATTEMPT 2                                 */
+/* -------------------------------------------------------------------------- */
+
+/* CLOSURE  */
+console.log("ATTEMPT 2   starts");
+
+function outer (){
+    var arr=[];
+    var i =0;
+    for (i=0; i<4;i++ ){
+        arr[i]=  function (){
+            return i;
+        }
+    }
+    return arr;
+}
+
+var execu = outer();
+console.log(execu[0]());
+console.log(execu[1]());
+console.log(execu[2]());
+console.log("ATTEMPT 2   ends");
+
+/* effing good explanation for closure on this link https://www.geeksforgeeks.org/closure-in-javascript/ */
+
+/* Q : WHAT IS A CLOSURE?
+A closure is an inner function that has access to the outer (enclosing) function’s variables—scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function’s variables, and it has access to the global variables.
+
+The inner function has access not only to the outer function’s variables, but also to the outer function’s parameters. Note that the inner function cannot call the outer function’s arguments object, however, even though it can call the outer function’s parameters directly. */
+
+/*Q : WHY DO WE NEED CLOSURES?
+
+Answers:
+---My problem with these and many answers is that they approach it from an abstract, theoretical perspective, rather than starting with explaining simply why closures are necessary in Javascript and the practical situations in which you use them. You end up with a tl;dr article that you have to slog through, all the time thinking, "but, why?". I would simply start with: closures are a neat way of dealing with the following two realities of JavaScript: a. scope is at the function level, not the block level and, b. much of what you do in practice in JavaScript is asynchronous/event driven. – Jeremy Burton Mar 8 '13 at 17:22
+53
+
+----@Redsandro For one, it makes event-driven code a lot easier to write. I might fire a function when the page loads to determine specifics about the HTML or available features. I can define and set a handler in that function and have all that context info available every time the handler is called without having to re-query it. Solve the problem once, re-use on every page where that handler is needed with reduced overhead on handler re-invocation. You ever see the same data get re-mapped twice in a language that doesn't have them? Closures make it a lot easier to avoid that sort of thing. –
+
+You create a closure by adding a function inside another function.
+
+
+A BASIC EXAMPLE OF CLOSURES IN JAVASCRIPT:
+-----from (http://javascriptissexy.com/understand-javascript-closures-with-ease/)
+function showName (firstName, lastName) {
+var nameIntro = "Your name is ";
+    // this inner function has access to the outer function's variables, including the parameter
+function makeFullName () {
+return nameIntro + firstName + " " + lastName;
+}
+
+return makeFullName ();
+}
+
+showName ("Michael", "Jackson"); // Your name is Michael Jackson
+
+WHATCH THIS AS WELL FROM KUDVENKANT(https://www.youtube.com/watch?v=w1s9PgtEoJs)
+*/
+
