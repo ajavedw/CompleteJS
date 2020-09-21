@@ -1,0 +1,36 @@
+<mxfile host="5aebe5bf-2480-4f61-aff1-cb451a980ad0" modified="2020-09-19T13:31:07.015Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.48.2 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="rcCNLEEeBvNmp46wkuFW" version="13.1.3">
+    <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
+        <mxGraphModel dx="478" dy="534" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#990000;" edge="1" parent="1" source="2">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="PENDING&lt;br&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="120" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Settled / Resolved" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="230" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="After event happens" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;direction=south;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="120" width="20" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Before event has happened" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="80" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="If the promise was successful, it &lt;br&gt;nis setted or called&lt;br&gt;&amp;nbsp;as resolved . Else it is REJECTED" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="275" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Fullfilled" style="ellipse;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="310" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Rejected" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="230" y="310" width="120" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

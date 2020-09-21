@@ -32,7 +32,7 @@ function getRecipe() {
                     title: "pizza",
                     publisher: "me"
                 }
-                console.log(recipeID);
+                console.log(publisher);
             }, 1000, recipe.publisher);
 
         }, 1000, recipeID[2]);

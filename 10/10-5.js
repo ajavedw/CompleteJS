@@ -48,4 +48,20 @@ const newCheck = (getRecipeReturn) => {
 
 async function getRecipeAsyncAwait(){
     const firstPromise = await getIds;
+    console.log(firstPromise);
+    const recipe = await getRecipe(firstPromise[2]);
+    console.log(recipe);
+    const newch = await newCheck(recipe);
+    console.log(newch);
+
+    return recipe;
 }
+
+getRecipeAsyncAwait();
+
+//what about this
+getRecipeAsyncAwait().then( results => console.log(`this iis after ${results}`));
+
+//why not this 
+//const why = getRecipeAsyncAwait();
+//console.log(why);

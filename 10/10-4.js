@@ -15,6 +15,11 @@ console.log(ages6);
 
 
 // read this https://www.geeksforgeeks.org/javascript-promises/#:~:text=Promises%20are%20used%20to%20handle%20asynchronous%20operations%20in%20JavaScript.&text=Promises%20are%20the%20ideal%20choice,handling%20than%20callbacks%20and%20events.
+
+/* Promise is
+1.  an object that keeps track about whether a certain event has happened or not
+2. Determines what happens after the event has happened
+3. Implements the concept of future value that we are expecting  */
 const getIds = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve([567, 435, 678, 999]);
@@ -23,7 +28,7 @@ const getIds = new Promise((resolve, reject) => {
 }); 
 
 const getRecipe = (IDse) => {
-    return new Promise ((resolve, reject) => {
+    return new Promise ((resolve, reject) => { 
         setTimeout((id) => {
             const recipe = {
                 title:"some recipe",

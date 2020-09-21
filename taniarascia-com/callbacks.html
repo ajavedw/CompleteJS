@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="callbacks.js"></script>
+  </head>
+  <body>
+    <a
+      href="https://www.taniarascia.com/asynchronous-javascript-event-loop-callbacks-promises-async-await/"
+      target="_blank "
+    >
+      From this site</a
+    >
+
+    <h3>Why in FFFFF! we need callbacks WHY???????????????????????</h3>
+
+    <div id="answer-3017202" class="discussion-highlight">
+      <div id="show-answer-3017202">
+        <div class="discussion-byline">
+        </div>
+
+        <div class="discussion-answer-text">
+          <div class="markdown-zone">
+            <p>
+              Well, callbacks are necessary for asynchronous programming,
+              including waiting for a user request, making a request to another
+              server and doing something with the response, loading a file, etc.
+              If you used a function synchronously instead of in a callback,
+              then the function would be called before you get the data that the
+              function needs and therefore it wouldn't work. As to the second
+              part of your question, you could declare a function and pass that
+              as the callback instead of passing in an anonymous function, both
+              will work just fine.
+            </p>
+
+            <div class="highlight highlight-Javascript">
+              <pre><span></span><span id="line-1"><span class="kd">function</span> <span class="nx">asyncFunction</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    </span><span id="line-2">    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">);</span> <span class="c1">// passes foo to the callback</span>
+    </span><span id="line-3"><span class="p">}</span>
+    </span><span id="line-4">
+    </span><span id="line-5"><span class="c1">//This works</span>
+    </span><span id="line-6"><span class="nx">asyncFunction</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span>
+    </span><span id="line-7">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> 
+    </span><span id="line-8"><span class="p">});</span>
+    </span><span id="line-9">
+    </span><span id="line-10"><span class="c1">// this also works</span>
+    </span><span id="line-11"><span class="kd">function</span> <span class="nx">bat</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span>
+    </span><span id="line-12">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span>
+    </span><span id="line-13"><span class="p">}</span>
+    </span><span id="line-14"><span class="nx">asyncFunction</span><span class="p">(</span><span class="nx">bat</span><span class="p">)</span>
+    </span></pre>
+            </div>
+
+            <p>On the other hand, this does not work:</p>
+
+            <div class="highlight highlight-JavaScript">
+              <pre><span></span><span id="line-1"><span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span>
+    </span><span id="line-2"><span class="kd">function</span> <span class="nx">asyncFunction</span> <span class="p">()</span> <span class="p">{</span>
+    </span><span id="line-3">    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    </span><span id="line-4">        <span class="nx">foo</span> <span class="o">=</span> <span class="s1">'bar'</span><span class="p">;</span>
+    </span><span id="line-5">    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+    </span><span id="line-6"><span class="p">}</span>
+    </span><span id="line-7"><span class="kd">function</span> <span class="nx">bat</span><span class="p">()</span> <span class="p">{</span>
+    </span><span id="line-8">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>
+    </span><span id="line-9"><span class="p">}</span>
+    </span><span id="line-10"><span class="nx">asyncFunction</span><span class="p">();</span>
+    </span><span id="line-11"><span class="nx">bat</span><span class="p">();</span> <span class="c1">// logs out undefined</span>
+    </span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <code>
+      We need them because a lot of operations in JavaScript are asynchronous,
+      or put a bit more simply they don't actually stop the program from
+      continuing until they are done like you are probably used to. But instead
+      just run in the background while the rest of the code continues executing.
+      If you wanted to fetch some data from a server for instance (which could
+      takes an unknown amount of time) it would be incredibly inefficient for
+      your program to just freeze completely while it waited for that data to be
+      fetched. So instead of doing that it's common to just run the fetching
+      task in the background. This means that if you have two functions in a row
+      with function A being asynchronous then function B will be executed while
+      function A is still running. In that case if function B depends on data
+      that function A is fetching you will run into problems. This problem is
+      solved with callbacks. With a callback you can guarantee that function B
+      is only called after function A is finished with its thing because
+      function A is actually the one responsible for calling function B.
+      Asynchronous functions also aren't the only use of callbacks, but they are
+      the most common and useful use of them that I can think of at the top of
+      my head.
+    </code>
+
+    <div class="markdown-zone">
+      <p>Ben,</p>
+
+      <p>
+        The fundamental reason for a callback is to run code in response to an
+        event. These events could be user-generated, like mouse clicks or typing
+        for example. With a callback you can tell your program, "every time the
+        user presses a key on the keyboard, run this code". To register a
+        callback function for an event, you need to be able to pass it to
+        another function, which is responsible for binding the event and
+        callback together (i.e. make it so the callback executes, or runs, when
+        the event occurs).
+      </p>
+
+      <p>
+        For instance, let's say you want to execute the function
+        "<code>callback</code>" when the user clicks on the body of a webpage.
+        In vanilla JS, you could write:
+      </p>
+
+      <div class="highlight highlight-javascript">
+        <pre><span></span><span id="line-1"><span class="kr">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'body'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+  </span><span id="line-2">
+  </span><span id="line-3"><span class="kd">function</span> <span class="nx">callback</span><span class="p">()</span> <span class="p">{</span>
+  </span><span id="line-4">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">);</span>
+  </span><span id="line-5"><span class="p">}</span>
+  </span><span id="line-6">
+  </span><span id="line-7"><span class="nx">body</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+  </span></pre>
+      </div>
+
+      <p>
+        In this case, we are passing a function, "<code>callback</code>" to
+        another function "<code>addEventListener</code>". When
+        "<code>addEventListener</code>" runs, it registers
+        "<code>callback</code>" with the click event.
+      </p>
+
+      <p>
+        <strong
+          >Notice there are two different ways JavaScript is being run
+          here.</strong
+        >
+        The script runs once when the page loads. Here is what happens during
+        that execution:
+      </p>
+
+      <ol>
+        <li>
+          The "<code>body</code>" constant is declared, and a value is assigned
+          to it.
+        </li>
+        <li>
+          The function "<code>callback</code>" is declared, but not executed.
+        </li>
+        <li>
+          The method (i.e. function) "<code>addEventListener</code>" is
+          <strong>executed</strong>. (<code>callback</code> is passed in to
+          <code>addEventListener</code>. Again, <code>callback</code> is not
+          executed yet, only <code>addEventListener</code> is. Its job is to
+          tell the browser to run <code>callback</code> when the click event
+          occurs on the body.)
+        </li>
+      </ol>
+
+      <p>
+        Then, the other time JavaScript is run is when an event occurs, namely
+        the click event. This is when the function <code>callback</code> is
+        finally executed. It has only one line,
+        <code>console.log('Hello');</code>. So that line executes when the body
+        is clicked, and "Hello" is logged to the console. This can happen more
+        than once, namely whenever the body is clicked.
+      </p>
+
+      <p>Using jQuery might look like this:</p>
+
+      <div class="highlight highlight-javascript">
+        <pre><span></span><span id="line-1"><span class="kd">function</span> <span class="nx">callback</span><span class="p">()</span> <span class="p">{</span>
+  </span><span id="line-2">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">);</span>
+  </span><span id="line-3"><span class="p">}</span>
+  </span><span id="line-4">
+  </span><span id="line-5"><span class="nx">$</span><span class="p">(</span><span class="s1">'body'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+  </span></pre>
+      </div>
+
+      <p>
+        Notice it's very similar, but we're passing "<code>callback</code>" to a
+        function called "<code>on</code>", instead of
+        "<code>addEventListener</code>". In either case, you're handing your
+        callback function over to another function, which is taking care of
+        setting up the event listener for you.
+      </p>
+
+      <p>
+        There are other events besides user events. They could be called system
+        events. The events that
+        <a href="https://teamtreehouse.com/nathandalbec">Nathan Dalbec</a> and
+        <a href="https://teamtreehouse.com/andren">andren</a> mention in their
+        answers would fall into this category. In one, a callback is executed in
+        response to a certain amount of time passing. In another, a callback is
+        executed in response to a server returning data. The same basic thing is
+        happening. An event occurs, and a callback function runs in response.
+      </p>
+
+      <p>Does this make sense?</p>
+    </div>
+  </body>
+</html>
